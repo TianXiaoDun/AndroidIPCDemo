@@ -37,7 +37,7 @@ public class FileActivity extends AppCompatActivity {
                     }
                     catch (Exception e) {
                         e.printStackTrace();
-                         Log.d(Constants.TAG, "recover Exception:"+e.getLocalizedMessage());
+                        Log.d(Constants.TAG, "recover Exception:"+e.getLocalizedMessage());
                     }finally {
                         if(objectInputStream!=null){
                             try {
