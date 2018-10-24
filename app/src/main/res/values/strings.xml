@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">AndroidIPCDemo</string>
+	<string name="bundle_text">Bundle方式</string>
+	<string name="file_text">文件共享方式</string>
+</resources>
