@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class MainActivity extends AppCompatActivity {
-    private AppCompatButton bundleAppCompatButton, fileAppCompatButton,messengerAppCompatButton;
+    private AppCompatButton bundleAppCompatButton, fileAppCompatButton,messengerAppCompatButton,aidlAppCompatButton;
     
     
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -106,12 +106,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //通过AIDL
+        aidlAppCompatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AidlActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     
     private void initView() {
         bundleAppCompatButton = findViewById(R.id.btn_main_bundle);
         fileAppCompatButton = findViewById(R.id.btn_main_file);
         messengerAppCompatButton=findViewById(R.id.btn_main_messenger);
+        aidlAppCompatButton=findViewById(R.id.btn_main_aidl);
     }
     
     //写入文件

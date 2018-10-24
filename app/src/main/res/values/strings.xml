@@ -4,9 +4,12 @@
 	<string name="bundle_text">Bundle方式</string>
 	<string name="file_text">文件共享方式</string>
 	<string name="messenger_text">Messenger方式</string>
+	<string name="aidl_text">AIDL方式</string>
 
 	<string name="Bundle">Bundle</string>
 	<string name="file_share">文件共享</string>
 	<string name="Messenger">Messenger</string>
+	<string name="AIDL">AIDL</string>
+
 	<string name="hint_send_msg">发送的消息</string>
 </resources>

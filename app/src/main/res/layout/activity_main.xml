@@ -32,5 +32,13 @@
 		android:textSize="12sp"
 		/>
 
+	<android.support.v7.widget.AppCompatButton
+		android:id="@+id/btn_main_aidl"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:text="@string/AIDL"
+		android:textSize="12sp"
+		/>
 
 </LinearLayout>
