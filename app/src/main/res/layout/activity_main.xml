@@ -10,7 +10,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="10dp"
-		android:text="Bundle"
+		android:text="@string/Bundle"
 		android:textSize="12sp"
 		/>
 
@@ -19,14 +19,17 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="10dp"
-		android:text="文件共享"
+		android:text="@string/file_share"
 		android:textSize="12sp"
 		/>
 
 	<android.support.v7.widget.AppCompatButton
+		android:id="@+id/btn_main_messenger"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="10dp"
+		android:text="@string/Messenger"
+		android:textSize="12sp"
 		/>
 
 

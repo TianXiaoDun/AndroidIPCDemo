@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class MainActivity extends AppCompatActivity {
-    private AppCompatButton bundleAppCompatButton, fileAppCompatButton;
+    private AppCompatButton bundleAppCompatButton, fileAppCompatButton,messengerAppCompatButton;
     
     
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void initData() {
+        //权限回调结果
         PermissionUtil.onRequestMorePermissionsResult(MainActivity.this, PERMISSIONS_STORAGE,
                                                       new PermissionUtil.PermissionCheckCallBack() {
                     @Override
@@ -61,26 +62,23 @@ public class MainActivity extends AppCompatActivity {
         bundleAppCompatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /**
-                 * 1.跳转应用
-                 */
+//                1.跳转应用
                 /*Intent intent = context.getPackageManager().getLaunchIntentForPackage(packageName);*/
-                
-                /**
-                 * 2.跳转指定页面
-                 */
+    
+//                2.跳转指定页面
                 /*Intent intent=new Intent(MainActivity.this,BundleActivity.class);*/
-                //隐式（外部应用通过隐式方式跳转）
+//                隐式（外部应用通过隐式方式跳转）
                 Intent intent = new Intent("com.txd.androidipcdemo.bundle");
                /* Bundle mBundle=new Bundle();
                 mBundle.put..();
                 intent.putExtra("KEY_BUNDLE",mBundle);*/
                 
-                //通过Activity
+//                通过Activity
                 startActivity(intent);
-                //通过Service
+//                通过Service
+//                注意:android5.0之前是可以通过设置隐式意图来跨应用打开Service的,5.0之后就必须要通过显示意图来开启Service.
                 /*startService(intent);*/
-                //通过Receiver
+//                通过Receiver
                 /*sendBroadcast(intent);*/
             }
         });
@@ -100,11 +98,20 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+        //通过Messenger
+        messengerAppCompatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MessengerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     
     private void initView() {
         bundleAppCompatButton = findViewById(R.id.btn_main_bundle);
         fileAppCompatButton = findViewById(R.id.btn_main_file);
+        messengerAppCompatButton=findViewById(R.id.btn_main_messenger);
     }
     
     //写入文件
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 UserSerializable user = new UserSerializable(1, "hello world", false);
                 File dir = new File(Constants.FILE_SHARE_PATH);
                 if (!dir.exists()) {
-                    dir.mkdirs();
+                    boolean isSuccess=dir.mkdirs();
                 }
                 File cachedFile = new File(Constants.CACHE_FILE_PATH);
                 ObjectOutputStream objectOutputStream = null;
